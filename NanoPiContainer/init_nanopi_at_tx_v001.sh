@@ -102,6 +102,14 @@ sed -i 's/^#net\.ipv4\.ip_forward=1/net\.ipv4\.ip_forward=1/g' /etc/sysctl.conf
 sysctl -p
 
 #
+# lock user 'pi'
+#
+# disable shell for 'pi'
+usermod -s /sbin/nologin pi
+# lock password, unlock: `usermod -U pi`
+usermod -L pi
+
+#
 # apply netplan config
 # comment reason: using reboot instead, usually reboot will remain the same IP for eth0.
 #                 `netplan apply` will use new IP instead for some reason.
