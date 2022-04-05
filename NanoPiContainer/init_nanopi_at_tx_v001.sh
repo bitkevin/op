@@ -58,7 +58,7 @@ network:
             dhcp4: yes
         enp1s0:
             addresses:
-                - 10.0.0.1/24
+                - 192.168.1.8/24
 EOF
 
 
@@ -103,5 +103,9 @@ sysctl -p
 
 #
 # apply netplan config
-#
-netplan apply
+# comment reason: using reboot instead, usually reboot will remain the same IP for eth0.
+#                 `netplan apply` will use new IP instead for some reason.
+#netplan apply
+
+# reboot system
+reboot
