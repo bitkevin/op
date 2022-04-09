@@ -22,10 +22,10 @@ apt update
 
 
 #
-# timezone set to "America/Chicago"
+# timezone set to "UTC"
 #
-echo "America/Chicago" | sudo tee /etc/timezone
-timedatectl set-timezone America/Chicago
+echo "UTC" | sudo tee /etc/timezone
+timedatectl set-timezone UTC
 timedatectl
 date
 
@@ -48,18 +48,18 @@ inxi -Fc0
 #   LNA -- enp1s0
 #
 #
-mkdir -p /etc/netplan
-cat  << EOF >> /etc/netplan/config.yaml
-network:
-    version: 2
-    renderer: networkd
-    ethernets:
-        eth0:
-            dhcp4: yes
-        enp1s0:
-            addresses:
-                - 192.168.1.8/24
-EOF
+#mkdir -p /etc/netplan
+#cat  << EOF >> /etc/netplan/config.yaml
+#network:
+#    version: 2
+#    renderer: networkd
+#    ethernets:
+#        eth0:
+#            dhcp4: yes
+#        enp1s0:
+#            addresses:
+#                - 192.168.1.8/24
+#EOF
 
 
 #
@@ -115,5 +115,16 @@ usermod -L pi
 #                 `netplan apply` will use new IP instead for some reason.
 #netplan apply
 
+apt install curl wget fail2ban
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+nvm install 14 && nvm alias default 14 && npm i pm2 -g
+echo "enter new root password"
+passwd
+
+
 # reboot system
-reboot
+# reboot
