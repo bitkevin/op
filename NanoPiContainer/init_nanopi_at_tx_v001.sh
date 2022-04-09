@@ -6,6 +6,14 @@
 # @since Apr 04, 2022
 #
 
+if [ -e /root/init.done ]
+then
+    echo "ok, continue to init"
+else
+    echo "init already done"
+    exit
+fi
+
 # run as root
 if [ "$EUID" -ne 0 ]
   then echo "Please run as root"
@@ -122,6 +130,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 nvm install 14 && nvm alias default 14 && npm i pm2 -g
+
+touch /root/init.done
 echo "enter new root password"
 passwd
 
