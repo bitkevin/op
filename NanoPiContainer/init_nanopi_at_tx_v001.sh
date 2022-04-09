@@ -8,10 +8,10 @@
 
 if [ -e /root/init.done ]
 then
-    echo "ok, continue to init"
-else
     echo "init already done"
     exit
+else
+   echo "ok, continue to init"
 fi
 
 # run as root
