@@ -58,12 +58,7 @@ chmod 700 ~/.ssh/authorized_keys
 
 source ~/.bashrc
 
-echo "enter new root password"
-passwd
-
-
-
 touch /root/init.done
 
-# reboot system
-# reboot
+echo "enter new root password"
+passwd
