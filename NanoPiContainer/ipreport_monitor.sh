@@ -1,4 +1,5 @@
 # you must be root
+# run init_amd64.sh first
 
 apt-get install -y libpcap-dev net-tools
 # clone or download the repo
