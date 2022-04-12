@@ -3,6 +3,7 @@
 
 apt-get install -y libpcap-dev net-tools
 # clone or download the repo
+npm i -g node-gyp
  
 cd ~/plc-monitor
 npm ci
