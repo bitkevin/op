@@ -15,6 +15,7 @@ else
 fi;
 
 NewIP="10.2.${IP3rd}.253"
+NewIPDynamic="10.1.${IP3rd}.253"
 
 echo "newIP=${NewIP}"
 
@@ -24,7 +25,9 @@ network:
     renderer: networkd
     ethernets:
         eth0:
-            addresses: [${NewIP}/24]
+            addresses: 
+	    	- ${NewIP}/24
+		- ${NewIPDynamic}/24
             gateway4: "10.2.${IP3rd}.254"
             nameservers:
                 addresses: [8.8.8.8, 1.1.1.1]
