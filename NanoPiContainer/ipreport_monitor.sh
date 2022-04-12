@@ -9,4 +9,4 @@ npm ci
  
 ifconfig
 # find the eth device name with ip
-node src/ipReport.js enp1s0
+# pm2 start src/ipReport.js -- enp1s0
