@@ -38,9 +38,8 @@ ntpq -p
 #
 # print system information
 #
-sudo apt install -y inxi
+sudo apt install -y inxi bridge-utils curl wget fail2ban build-essential
 inxi -Fc0
-apt install -y curl wget fail2ban
 
 # install nvm, node, pm2
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
