@@ -37,5 +37,7 @@ network:
             gateway4: "10.2.${IP3rd}.254"
             nameservers:
             addresses: [8.8.8.8, 1.1.1.1]
+            interfaces:
+              - enp1s0
 EOF
 netplan apply
