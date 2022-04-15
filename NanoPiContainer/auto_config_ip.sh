@@ -36,3 +36,4 @@ network:
                 - 192.168.1.8/24
 EOF
 netplan apply
+ip route add 192.168.1.0/24 dev ens1
