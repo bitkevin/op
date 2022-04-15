@@ -7,3 +7,6 @@ wget https://raw.githubusercontent.com/bitkevin/op/main/NanoPiContainer/init_nan
 
 bash -x init_nanopi_at_tx_v001.sh
 ```
+
+### setup cronjob
+@reboot bash ~/auto_config_ip.sh
