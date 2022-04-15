@@ -38,7 +38,7 @@ ntpq -p
 #
 # print system information
 #
-sudo apt install -y inxi bridge-utils curl wget fail2ban build-essential
+sudo apt install -y inxi bridge-utils curl wget fail2ban build-essential net-tools
 inxi -Fc0
 
 # install nvm, node, pm2
