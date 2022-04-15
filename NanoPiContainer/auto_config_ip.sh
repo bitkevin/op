@@ -25,19 +25,14 @@ network:
     renderer: networkd
     ethernets:
         enp1s0:
-            dhcp4: true
-        ens1:
-            addresses:
-                - 192.168.1.8/24
-    bridges:
-        br0:
             addresses:
               - ${NewIP}/24
               - ${NewIPDynamic}/24
             gateway4: "10.2.${IP3rd}.254"
             nameservers:
               addresses: [8.8.8.8, 1.1.1.1]
-            interfaces:
-              - enp1s0
+        ens1:
+            addresses:
+                - 192.168.1.8/24
 EOF
 netplan apply
