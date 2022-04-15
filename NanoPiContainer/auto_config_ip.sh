@@ -26,7 +26,7 @@ network:
     ethernets:
         enp1s0:
             dhcp4: true
-	ens1:
+        ens1:
             addresses:
                 - 192.168.1.8/24
     bridges:
