@@ -59,5 +59,4 @@ source ~/.bashrc
 
 touch /root/init.done
 
-echo "enter new root password"
-passwd
+echo "please change root password manually using command 'passwd'"
