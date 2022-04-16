@@ -1,4 +1,7 @@
-IP=`ifconfig enp1s0 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
+LAN1=enp1s0
+LAN2=ens1
+
+IP=`ifconfig $LAN1 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
 echo $IP
 
 IPStart=`echo $IP | cut -c 1-4`
@@ -24,16 +27,16 @@ network:
     version: 2
     renderer: networkd
     ethernets:
-        enp1s0:
+        ${LAN1}:
             addresses:
               - ${NewIP}/24
               - ${NewIPDynamic}/24
             gateway4: "10.2.${IP3rd}.254"
             nameservers:
               addresses: [8.8.8.8, 1.1.1.1]
-        ens1:
+        ${LAN2}:
             addresses:
                 - 192.168.1.8/24
 EOF
 netplan apply
-ip route add 192.168.1.0/24 dev ens1
+ip route add 192.168.1.0/24 dev $LAN2
