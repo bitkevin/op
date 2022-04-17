@@ -1,5 +1,5 @@
-LAN1=enp1s0
-LAN2=ens1
+LAN1=eth0
+LAN2=eth1
 
 IP=`ifconfig $LAN1 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
 echo $IP
@@ -17,8 +17,7 @@ else
 	exit
 fi;
 
-NewIP="10.2.${IP3rd}.253"
-NewIPDynamic="10.1.${IP3rd}.253"
+NewIP="10.2.${IP3rd}.252"
 
 echo "newIP=${NewIP}"
 
@@ -30,7 +29,6 @@ network:
         ${LAN1}:
             addresses:
               - ${NewIP}/24
-              - ${NewIPDynamic}/24
             gateway4: "10.2.${IP3rd}.254"
             nameservers:
               addresses: [8.8.8.8, 1.1.1.1]
