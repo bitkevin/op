@@ -17,7 +17,7 @@ else
 	exit
 fi;
 
-NewIP="10.2.${IP3rd}.252"
+NewIP="10.2.${IP3rd}.253"
 
 echo "newIP=${NewIP}"
 
