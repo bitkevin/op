@@ -1,5 +1,5 @@
-LAN1=eth0
-LAN2=eth1
+LAN1=enp1s0
+LAN2=ens1
 
 IP=`ifconfig $LAN1 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
 echo $IP
