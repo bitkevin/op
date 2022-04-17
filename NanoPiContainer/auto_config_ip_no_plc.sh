@@ -1,7 +1,7 @@
 LAN1=enp1s0
 LAN2=ens1
 
-IP=`ifconfig $LAN1 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
+IP=`ifconfig $LAN2 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
 echo $IP
 
 IPStart=`echo $IP | cut -c 1-4`
