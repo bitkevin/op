@@ -31,7 +31,7 @@ network:
         ${LAN1}:
             addresses:
               - ${NewIP}/24
-	      - ${NewIPDynamic}/24
+              - ${NewIPDynamic}/24
             gateway4: "10.2.${IP3rd}.254"
             nameservers:
               addresses: [8.8.8.8, 1.1.1.1]
