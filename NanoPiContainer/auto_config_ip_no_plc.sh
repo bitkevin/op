@@ -18,8 +18,10 @@ else
 fi;
 
 NewIP="10.2.${IP3rd}.253"
+NewIPDynamic="10.1.${IP3rd}.253"
 
 echo "newIP=${NewIP}"
+echo "NewIPDynamic=${NewIPDynamic}"
 
 cat  << EOF > /etc/netplan/01-network-manager-all.yaml
 network:
@@ -29,6 +31,7 @@ network:
         ${LAN1}:
             addresses:
               - ${NewIP}/24
+	      - ${NewIPDynamic}/24
             gateway4: "10.2.${IP3rd}.254"
             nameservers:
               addresses: [8.8.8.8, 1.1.1.1]
