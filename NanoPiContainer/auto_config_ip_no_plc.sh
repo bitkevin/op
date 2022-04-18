@@ -1,8 +1,7 @@
 LAN1=enp1s0
 LAN2=ens1
 
-# if using nano pi, must change ifconfig to full path /usr/sbin/ifconfig
-IP=`ifconfig $LAN2 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
+IP=`/usr/sbin/ifconfig $LAN2 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
 echo $IP
 
 IPStart=`echo $IP | cut -c 1-4`
@@ -40,5 +39,4 @@ network:
             dhcp4: true
 EOF
 
-# if using nano pi, must change to full path /usr/sbin/netplan
-netplan apply
+/usr/sbin/netplan apply
