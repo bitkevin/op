@@ -7,6 +7,11 @@ npm i -g node-gyp
  
 cd ~/plc-monitor
 npm ci
+
+# if this fails, try to install and build the pcap module directly
+cd node_modules/pcap/
+node-gyp rebuild
+cd ~/plc-monitor && npm i
  
 ifconfig
 # find the eth device name with ip
