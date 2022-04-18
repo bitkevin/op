@@ -2,7 +2,7 @@ LAN1=enp1s0
 LAN2=ens1
 
 # if using nano pi, must change to full path /usr/sbin/ifconfig
-IP=`ifconfig $LAN1 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
+IP=`/usr/sbin/ifconfig $LAN1 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
 echo $IP
 
 IPStart=`echo $IP | cut -c 1-4`
@@ -32,7 +32,7 @@ network:
             addresses:
               - ${NewIP}/24
               - ${NewIPDynamic}/24
-            gateway4: "10.2.${IP3rd}.254"
+            gateway4: "10.1.${IP3rd}.254"
             nameservers:
               addresses: [8.8.8.8, 1.1.1.1]
         ${LAN2}:
@@ -41,5 +41,5 @@ network:
 EOF
 
 # if using nano pi, must change to full path /usr/sbin/netplan
-netplan apply
-ip route add 192.168.1.0/24 dev $LAN2
+/usr/sbin/netplan apply
+/usr/sbin/ip route add 192.168.1.0/24 dev $LAN2
