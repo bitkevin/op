@@ -1,7 +1,7 @@
 LAN1=enp1s0
 LAN2=ens1
+sleep 20
 
-# if using nano pi, must change to full path /usr/sbin/ifconfig
 IP=`/usr/sbin/ifconfig $LAN1 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
 echo $IP
 
@@ -40,6 +40,5 @@ network:
                 - 192.168.1.8/24
 EOF
 
-# if using nano pi, must change to full path /usr/sbin/netplan
 /usr/sbin/netplan apply
 /usr/sbin/ip route add 192.168.1.0/24 dev $LAN2
