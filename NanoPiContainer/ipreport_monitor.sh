@@ -12,12 +12,12 @@ rm -rf ~/src
 cd ~/plc-monitor && npm ci
 
 # if this fails, try to install and build the pcap module directly
-cd node_modules/pcap/
-node-gyp rebuild
-cd ~/plc-monitor && npm i
+#cd node_modules/pcap/
+#node-gyp rebuild
+#cd ~/plc-monitor && npm i
  
 ifconfig
 # find the eth device name with ip
-pm2 start src/ipReport.js -- enp1s0
+pm2 start src/ipReport.js -- eth0
 pm2 save
 pm2 startup
