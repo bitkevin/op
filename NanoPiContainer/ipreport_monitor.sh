@@ -4,9 +4,12 @@
 apt-get install -y libpcap-dev net-tools build-essential
 # clone or download the repo
 npm i -g node-gyp
- 
-cd ~/plc-monitor
-npm ci
+
+wget -P ~/src --recursive --no-parent http://192.168.15.200:8080/plc-monitor
+rm -rf ~/plc-monitor
+mv src/192.168.15.200\:8080/plc-monitor ~/
+rm -rf ~/src
+cd ~/plc-monitor && npm ci
 
 # if this fails, try to install and build the pcap module directly
 cd node_modules/pcap/
