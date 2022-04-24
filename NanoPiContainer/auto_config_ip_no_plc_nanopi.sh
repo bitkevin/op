@@ -6,6 +6,13 @@ PATH=/usr/sbin:/usr/bin
 IP=`/usr/sbin/ifconfig $LAN2 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
 echo $IP
 
+if [ -z "$IP" ]
+then
+    echo "$IP is empty, try LAN1"
+    IP=`/usr/sbin/ifconfig $LAN1 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
+    echo $IP
+fi
+
 IPStart=`echo $IP | cut -c 1-4`
 echo "IPStart=${IPStart}"
 
@@ -15,8 +22,8 @@ echo "IP3rd=${IP3rd}"
 if [ "$IPStart" = "10.1" ]; then
     echo "found dhcp in 10.1 range"
 else
-	echo "ip $IP is not in expected range"
-	exit
+    echo "ip $IP is not in expected range"
+    exit
 fi;
 
 NewIP="10.2.${IP3rd}.253"
