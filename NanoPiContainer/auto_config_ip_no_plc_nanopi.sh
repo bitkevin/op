@@ -1,16 +1,17 @@
 LAN1=eth0
 LAN2=eth1
+sleep 30
 
 PATH=/usr/sbin:/usr/bin
 
 IP=`/usr/sbin/ifconfig $LAN2 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
-echo $IP
+echo "IP=$IP"
 
 if [ -z "$IP" ]
 then
     echo "$IP is empty, try LAN1"
     IP=`/usr/sbin/ifconfig $LAN1 | grep 'inet' | cut -d: -f2 | awk '{print $2}'`
-    echo $IP
+    echo "IP=$IP"
 fi
 
 IPStart=`echo $IP | cut -c 1-4`
