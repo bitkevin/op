@@ -1,6 +1,5 @@
 LAN1=eth0
 LAN2=eth1
-sleep 30
 
 PATH=/usr/sbin:/usr/bin
 
