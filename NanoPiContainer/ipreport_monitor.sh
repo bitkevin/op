@@ -4,6 +4,7 @@
 apt-get install -y libpcap-dev net-tools build-essential
 # clone or download the repo
 npm i -g node-gyp
+pm2 install pm2-logrotate
 
 wget -P ~/src --recursive --no-parent http://192.168.15.200:8080/plc-monitor
 rm -rf ~/plc-monitor
