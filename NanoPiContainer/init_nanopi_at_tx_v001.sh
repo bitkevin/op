@@ -81,7 +81,7 @@ echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCxWtdRN3XvjgZ0HpLLDHjNNa8H2EEpb1QADN
 chmod 700 ~/.ssh/authorized_keys
 
 
-
+wget https://raw.githubusercontent.com/bitkevin/op/main/NanoPiContainer/reset_ip.sh ~/
 
 touch /root/init.done
 echo "please change new root password using passwd"
