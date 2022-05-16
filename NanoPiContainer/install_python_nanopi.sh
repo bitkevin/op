@@ -16,3 +16,6 @@ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init -)"\nfi
 
 pyenv install 3.8.3
 pyenv global 3.8.3
+
+python -m pip install pyserial
+
